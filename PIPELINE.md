@@ -22,7 +22,12 @@ Objetivo: 2 videos por día, temas que nunca se repiten (ver `topics.md`), aptos
 ## 3. Video (dibujado en código)
 - `pip install --break-system-packages pycairo` si falta. Usa `pipeline/ejemplo_01_pulpo.py` como plantilla: fondo, subtítulos palabra por palabra (amarillo #FFD23F en la palabra activa), etiqueta LogiDatos arriba, tarjeta final con logo + "SÍGUENOS".
 - Dibuja animaciones nuevas y propias para el tema (íconos, diagramas, personajes simples, comparaciones, contadores). Una escena por idea del guion, sincronizadas con los tiempos de las palabras.
-- 1080×1920, 30 fps, H.264 CRF 18 preset veryfast, audio AAC 192k. Sin música con copyright (mejor sin música).
+- 1080×1920, 30 fps, H.264 CRF 18 preset veryfast, audio AAC 192k.
+- **Música de fondo (obligatoria desde el #3):** solo música ORIGINAL generada con `pipeline/musica.py` (sintetizada en código, sin samples ni pistas de terceros → sin copyright). Nunca descargues música de internet ni la generes con IA.
+  - Elige el preset según el tema: `espacio` (espacio, planetas, océano profundo), `curioso` (animales, cuerpo humano, comida), `misterio` (historia, misterios, récords), `energia` (tecnología, física, inventos, deportes). Usa como `--seed` el número del video para que cada uno suene distinto.
+  - `python3 pipeline/musica.py gen --dur <TOTAL> --preset <preset> --seed <N> --out build/musica.wav`
+  - En el render, en lugar de unir solo la voz al video mudo, mezcla: `python3 pipeline/musica.py mix build/silent.mp4 dl/voz.mp3 build/musica.wav <FINAL>.mp4 --total <TOTAL>` (la música queda ~15 dB bajo la voz y se reduce sola cuando habla el narrador).
+  - Verifica con `ffmpeg -af volumedetect` que el volumen medio final quede entre -18 y -14 dB y el máximo por debajo de -1 dB.
 - Antes de renderizar completo, revisa 6–8 cuadros de vista previa y corrige solapamientos.
 - Nombre: `LogiDatos_NN_tema_corto.mp4`.
 
