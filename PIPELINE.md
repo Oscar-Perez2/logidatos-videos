@@ -34,5 +34,10 @@ Objetivo: 2 videos por día, temas que nunca se repiten (ver `topics.md`), aptos
 ## 4. Publicación
 - Repo `Oscar-Perez2/logidatos-videos`, rama `videos`: copia el mp4 a `videos/`, agrega la línea en `topics.md`, commit y push.
 - Enlace público: `https://raw.githubusercontent.com/Oscar-Perez2/logidatos-videos/videos/videos/<archivo>.mp4`
-- Metricool `createScheduledPost`: `blogId 8288543`, provider `youtube`, `autoPublish true`, `media` = enlace anterior, `youtubeData` = {title (≤70 caracteres, con gancho y "#shorts"), type "short", privacy "public", tags, category "EDUCATION", madeForKids false, isAiGeneratedContent false}, `text` = descripción con 2–3 frases + "🔔 Suscríbete a LogiDatos…" + 5–8 hashtags. Zona horaria America/Santo_Domingo.
+- Metricool `createScheduledPost`: `blogId 8288543`, `autoPublish true`, `media` = enlace anterior, zona horaria America/Santo_Domingo. Se publica en las CUATRO redes: `providers` = youtube, facebook, instagram, tiktok.
+  - `youtubeData` = {title (≤70 caracteres, con gancho y "#shorts"), type "short", privacy "public", tags, category "EDUCATION", madeForKids false, isAiGeneratedContent false}
+  - `facebookData` = {type "REEL", title = el mismo título sin "#shorts"}
+  - `instagramData` = {type "REEL", showReelOnFeed true, isAiGenerated false}
+  - `tiktokData` = {privacyOption "PUBLIC_TO_EVERYONE", title = el mismo título sin "#shorts"}
+  - `text` = descripción con 2–3 frases + "🔔 Sigue a LogiDatos para más curiosidades en menos de un minuto." + 5 hashtags.
 - Horarios: corrida de la mañana → publicar a las 10:00; corrida de la tarde → publicar a las 18:00 (si ya hay algo a esa hora, la siguiente hora libre).
