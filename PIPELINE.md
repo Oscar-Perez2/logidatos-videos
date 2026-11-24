@@ -9,7 +9,7 @@ Objetivo: 2 videos por día, temas que nunca se repiten (ver `topics.md`), aptos
 
 ## 0. Qué premia el algoritmo (aplica en cada paso)
 - Cada Short se prueba primero con un grupo pequeño de desconocidos. Si muchos lo pasan en los primeros 1–2 segundos, deja de recomendarse. **El inicio lo decide todo.**
-- Retención: que la gente vea el video completo (y lo repita). Apunta a 30–40 s, sin relleno.
+- Retención: que la gente vea el video completo (y lo repita). Duración de 30 s a **1:15 como máximo**: la decide el tema. Si la historia da para más, úsala; si no, córtala. Cada segundo extra debe aportar un dato o un giro nuevo, nunca relleno.
 - Comentarios: valen más que un "suscríbete". Cierra con una pregunta fácil de responder.
 - Datos reales (23-nov): en Instagram el 53 % pasaba el video en los primeros 3 s. Hay que mejorar el gancho.
 
@@ -32,9 +32,9 @@ Si ya hay datos en Metricool (paso 6), favorece las categorías y tipos de ganch
 
 Verifica cada dato con búsqueda web en fuentes confiables (Smithsonian, Live Science, National Geographic, NASA, universidades, revistas científicas). Si un dato es dudoso o es un mito, no lo uses.
 
-## 2. Guion (30–40 s, ≈85–105 palabras)
+## 2. Guion (30–75 s, ≈85–200 palabras; nunca más de 1:15)
 - **Primera frase = gancho (máx. 1,5 s, ≤ 10 palabras).** Arranca directo con el dato o la pregunta: "Tu cuerpo brilla en la oscuridad.", "Nunca has visto tu verdadera cara.". Nada de "Hola", "¿Sabías que…?" ni presentaciones.
-- Después 2–3 datos explicados simple, cada uno con un mini giro ("pero eso no es lo más raro…") para que no se vayan.
+- Después 2–5 datos explicados simple, cada uno con un mini giro ("pero eso no es lo más raro…") para que no se vayan. En videos de más de 45 s, pon un nuevo giro o revelación cada 8–10 s.
 - Remate con el dato más fuerte al final, no al principio.
 - Cierre (una frase): pregunta para comentarios + seguir. Ej.: "¿Lo sabías? Comenta, y sigue a LogiDatos para más."
 - Español latino neutro, frases cortas, nada de relleno.
@@ -53,14 +53,14 @@ Verifica cada dato con búsqueda web en fuentes confiables (Smithsonian, Live Sc
 - **Primer cuadro (t = 0):** ya debe verse el texto del gancho en grande (≤ 6 palabras) y una imagen en movimiento. Nada de logo, intro ni fundido desde negro.
 - Cambia de escena o de animación cada 2–4 s (zoom, contador, flecha, aparición). Una escena por idea, sincronizada con los tiempos de las palabras.
 - Zona segura: nada importante debajo de y = 1560 salvo subtítulos, ni a la derecha (x > 960) entre y = 900 y 1700 (botones de las apps).
-- **Formato final obligatorio: 1080×1920, 30 fps, H.264 CRF 18 preset veryfast, yuv420p, audio AAC 192k, `-movflags +faststart`.** Nunca bajar a 720p ni recomprimir para ahorrar peso (GitHub acepta archivos de hasta 100 MB; uno de 40 s pesa ~7–15 MB).
+- **Formato final obligatorio: 1080×1920, 30 fps, H.264 CRF 18 preset veryfast, yuv420p, audio AAC 192k, `-movflags +faststart`.** Nunca bajar a 720p ni recomprimir para ahorrar peso (GitHub acepta archivos de hasta 100 MB; uno de 75 s pesa ~15–30 MB).
 - **Música de fondo (obligatoria):** solo música ORIGINAL generada con `pipeline/musica.py` (sintetizada en código, sin copyright). Nunca descargues música ni la generes con IA.
   - Preset según el tema: `espacio` (espacio, planetas, océano profundo), `curioso` (animales, cuerpo humano, comida, casa), `misterio` (historia, misterios, récords), `energia` (tecnología, física, inventos, deportes). `--seed` = número del video.
   - `python3 pipeline/musica.py gen --dur <TOTAL> --preset <preset> --seed <N> --out build/musica.wav`
   - Mezcla: `python3 pipeline/musica.py mix build/silent.mp4 dl/voz.mp3 build/musica.wav <FINAL>.mp4 --total <TOTAL>`
   - Verifica con `ffmpeg -af volumedetect` que el volumen medio quede entre -18 y -14 dB y el máximo por debajo de -1 dB.
 - Antes del render completo, revisa 6–8 cuadros de vista previa (incluye t = 0 y la tarjeta final) y corrige textos cortados, solapes y glifos que falten.
-- Al final comprueba con `ffprobe` que el archivo sea 1080×1920 y dure lo esperado.
+- Al final comprueba con `ffprobe` que el archivo sea 1080×1920 y dure 75 s o menos (TikTok, Instagram y YouTube Shorts lo aceptan sin problema).
 - Nombre: `LogiDatos_NN_tema_corto.mp4`. Guarda el script del episodio como `pipeline/video_NN_tema.py`.
 
 ## 5. Publicación
