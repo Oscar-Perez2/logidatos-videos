@@ -5,7 +5,7 @@ Es la ÚNICA marca: YouTube, Facebook, Instagram y TikTok son todas cuentas de L
 MedLogicos se cerró el 23-nov-2026: nunca uses ese nombre, su estilo "Neón" ni su carpeta de Drive.
 Todo vive en este repositorio (rama `videos`). Nada se sube a Google Drive.
 
-Objetivo: 2 videos por día, temas que nunca se repiten (ver `topics.md`), aptos para monetizar y pensados para que el algoritmo los empuje.
+Objetivo: 1 video por día (hasta el 30-nov-2026), temas que nunca se repiten (ver `topics.md`), aptos para monetizar y pensados para que el algoritmo los empuje.
 
 ## 0. Qué premia el algoritmo (aplica en cada paso)
 - Cada Short se prueba primero con un grupo pequeño de desconocidos. Si muchos lo pasan en los primeros 1–2 segundos, deja de recomendarse. **El inicio lo decide todo.**
@@ -73,7 +73,7 @@ Verifica cada dato con búsqueda web en fuentes confiables (Smithsonian, Live Sc
   - `tiktokData` = {privacyOption "PUBLIC_TO_EVERYONE", title = el mismo título sin "#shorts"}
   - `text` = 2–3 frases con el dato + una pregunta para comentar + "🔔 Sigue a LogiDatos para más curiosidades en menos de un minuto." + 3–4 hashtags (#curiosidades #sabiasque + 1–2 del tema).
 - Título: el gancho, no una descripción. Bien: "Tu cuerpo brilla en la oscuridad 😳". Mal: "Datos sobre la bioluminiscencia humana".
-- Horarios fijos: corrida de la mañana → publicar a las **12:00**; corrida de la tarde → publicar a las **19:00** (America/Santo_Domingo). Si ya hay algo a esa hora (getScheduledPosts), usa la siguiente hora libre.
+- Horario fijo: la corrida es a las 8:37 y el video se publica a las **19:00** del mismo día (America/Santo_Domingo), la hora pico de la audiencia. Si ya hay algo a esa hora (getScheduledPosts), usa la siguiente hora libre.
 
 ## 6. Aprender de los números (cada corrida, 1 minuto)
 Antes de elegir el tema, consulta en Metricool (`getAnalyticsDataByMetrics`, brandId 8288543, últimos 14 días):
