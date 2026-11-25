@@ -1,0 +1,3 @@
+# Archivos temporales de cada corrida (voz descargada, render intermedio)
+pipeline/build/
+pipeline/dl/
